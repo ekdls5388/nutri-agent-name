@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-// Icons for verification status
+
 const StatusIcon = ({ status }) => {
   switch (status) {
     case "Safe":
@@ -62,11 +62,11 @@ function App() {
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
-      console.log("Received recommendations:", data);
+      console.log("Got some recommendations! Check 'em out:", data);
       setRecommendations(data);
     } catch (e) {
       setError("Failed to fetch recommendations: " + e.message);
-      console.error("Error fetching recommendations:", e);
+      console.error("Oops, couldn't get recommendations:", e);
     } finally {
       setLoading(false);
     }
