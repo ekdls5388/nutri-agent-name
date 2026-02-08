@@ -15,6 +15,9 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.json({ message: "백엔드 서버 가동중. " });
+});
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
