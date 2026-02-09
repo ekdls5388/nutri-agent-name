@@ -3,8 +3,11 @@ const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 const { addExtra } = require("puppeteer-extra");
+const fs = require("fs");
+
 const puppeteerExtra = addExtra(puppeteer);
 puppeteerExtra.use(StealthPlugin());
+
 const express = require("express");
 const cors = require("cors");
 const OpenAI = require("openai");
@@ -34,10 +37,13 @@ async function searchAgent(ingredient) {
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
+      "--single-process",
+      "--no-zygote",
     ],
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath(),
     headless: chromium.headless,
+    ignoreDefaultArgs: ["--disable-extensions"], // 추가
   });
 
   const page = await browser.newPage();
