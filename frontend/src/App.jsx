@@ -236,7 +236,7 @@ function App() {
               {recommendations.recommendedIngredients?.length > 0 && (
                 <div>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">
-                    추천드리는 영양 성분
+                    | 추천드리는 영양 성분 |
                   </p>
 
                   <p className="text-slate-200 leading-relaxed">
