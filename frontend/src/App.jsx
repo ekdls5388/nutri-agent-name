@@ -165,6 +165,19 @@ function App() {
             />
           </Field>
 
+          <Field label="월 예산 범위">
+            <SelectInput
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              options={[
+                { value: "price_under_50000", label: "5만원 이하" },
+                { value: "price_50000_100000", label: "5만 ~ 10만원" },
+                { value: "price_100000_200000", label: "10만 ~ 20만원" },
+                { value: "price_over_200000", label: "20만원 이상" },
+              ]}
+            />
+          </Field>
+
           <Field label="성별">
             <SelectInput
               value={gender}
